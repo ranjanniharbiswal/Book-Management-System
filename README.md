@@ -1,5 +1,5 @@
 # Book-Management-System
-A modern REST API built with Node.js, TypeScript, PostgreSQL, and Prisma for managing a book collection with bulk CSV import functionality.
+Designed and implemented a REST API for book management with Node.js and TypeScript, leveraging PostgreSQL and Prisma for data persistence and bulk CSV import.
 
 ## 🚀 Features
 
@@ -85,33 +85,35 @@ The API will be available at `http://localhost:3000`
 **Create a Book:**
 ```bash
 POST http://localhost:3000/books \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "publishedYear": 1925
+  "Content-Type: application/json" \
+  '{
+    "title": "Auto - Biography",
+    "author": "Nihar",
+    "publishedYear": 2026
   }'
 ```
 
 **Get All Books:**
 ```bash
-curl http://localhost:3000/books
+GET http://localhost:3000/books
 ```
 
 **Update a Book:**
 ```bash
  PUT http://localhost:3000/books/{id} \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "The Great Gatsby - Special Edition",
-    "publishedYear": 2023
+  "Content-Type: application/json" \
+  '{
+    "title": "The Great Book - Special Edition",
+    "publishedYear": 2026
   }'
 ```
 
 **Import Books from CSV:**
 ```bash
- POST http://localhost:3000/books/import \
-  -F "file=@books.csv"
+  POST http://localhost:3000/books/import \
+  "Content-Type: multipart/form-data" \
+  "file=@books.csv"
+
 ```
 
 ### CSV Import Format
@@ -119,7 +121,7 @@ curl http://localhost:3000/books
 The CSV file should have the following format:
 ```csv
 titleExample,authorExample,publishedYearExample
-1984,George Orwell,1949
+2026,George Orwell,2025
 To Kill a Mockingbird,Harper Lee,1960
 Pride and Prejudice,Jane Austen,1813
 ```
@@ -200,9 +202,9 @@ book-management-api/
     "id": "uuid",
     "title": "Book Title",
     "author": "Author Name",
-    "publishedYear": 2023,
-    "createdAt": "2024-01-11T10:00:00.000Z",
-    "updatedAt": "2024-01-11T10:00:00.000Z"
+    "publishedYear": 2026,
+    "createdAt": "2026-01-11T10:00:00.000Z",
+    "updatedAt": "2026-01-11T10:00:00.000Z"
   }
 }
 ```
@@ -227,7 +229,7 @@ book-management-api/
       {
         "row": 3,
         "data": {...},
-        "errors": ["Title is required"]
+        "errors": ["Title is required .."]
       }
     ]
   }
@@ -246,13 +248,9 @@ npm run dev
 npm start
 ```
 
-## 📄 License
-
-MIT
 
 ## 👤 Author
 
 Nihar Ranjan Biswal     - [GitHub Profile](https://github.com/ranjanniharbiswal)
 
-## 🤝 Contributing
-
+##
