@@ -11,9 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+
+//Check if our server is running or not
+
 app.get('/', (req, res) => {
   res.json({
-    message: 'Book Management API',
+    message: 'Book Management',
     version: '1.0.0',
     endpoints: {
       books: '/books',
@@ -21,6 +24,8 @@ app.get('/', (req, res) => {
     },
   });
 });
+
+//API end point
 
 app.use('/books', bookRoutes);
 

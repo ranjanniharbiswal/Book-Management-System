@@ -1,0 +1,20 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["adapter-pg"] // Highly recommended when using a custom adapter
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // <--- Add this line
+}
+
+model Book {
+  id            String   @id @default(uuid())
+  title         String
+  author        String
+  publishedYear Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("books")
+}
