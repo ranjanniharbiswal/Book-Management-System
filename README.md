@@ -158,7 +158,7 @@ npx prisma migrate reset
 ## 📦 Project Structure
 
 ```
-book-management-api/
+book-management /
 ├── src/
 │   ├── config/
 │   │   └── prisma.ts          # Prisma client configuration
